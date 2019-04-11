@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412403BA2239B15A000CA642 /* LifestyleVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403B92239B15A000CA642 /* LifestyleVCViewController.swift */; };
+		412403BC2245BECE000CA642 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403BB2245BECE000CA642 /* LoginVC.swift */; };
+		412403BE2245BF90000CA642 /* MainFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403BD2245BF90000CA642 /* MainFeedVC.swift */; };
+		412403C02245BFFD000CA642 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403BF2245BFFD000CA642 /* LaunchVC.swift */; };
+		412403C22245CB79000CA642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412403C12245CB79000CA642 /* Assets.xcassets */; };
 		416FDBAD2213C9080095B84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBAC2213C9080095B84A /* AppDelegate.swift */; };
-		416FDBAF2213C9080095B84A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBAE2213C9080095B84A /* ViewController.swift */; };
+		416FDBAF2213C9080095B84A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBAE2213C9080095B84A /* SignUpVC.swift */; };
 		416FDBB22213C9080095B84A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416FDBB02213C9080095B84A /* Main.storyboard */; };
-		416FDBB42213C90A0095B84A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 416FDBB32213C90A0095B84A /* Assets.xcassets */; };
 		416FDBB72213C90A0095B84A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416FDBB52213C90A0095B84A /* LaunchScreen.storyboard */; };
 		416FDBC22213C90A0095B84A /* Quick_FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBC12213C90A0095B84A /* Quick_FeedTests.swift */; };
 		416FDBCD2213C90A0095B84A /* Quick_FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBCC2213C90A0095B84A /* Quick_FeedUITests.swift */; };
+		41931D6C2251D391003B4A48 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41931D6B2251D391003B4A48 /* SettingsVC.swift */; };
+		41B3D004225EB902000E1C31 /* MainFeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */; };
+		41B3D006225ECFC2000E1C31 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3D005225ECFC2000E1C31 /* Recipe.swift */; };
+		41FF2F6F224F000C00B0CFE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */; };
+		D37513C132FBA3FB116BA79E /* Pods_Quick_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		412403B92239B15A000CA642 /* LifestyleVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleVCViewController.swift; sourceTree = "<group>"; };
+		412403BB2245BECE000CA642 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		412403BD2245BF90000CA642 /* MainFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedVC.swift; sourceTree = "<group>"; };
+		412403BF2245BFFD000CA642 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
+		412403C12245CB79000CA642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		416FDBA92213C9080095B84A /* Quick Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		416FDBAC2213C9080095B84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		416FDBAE2213C9080095B84A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		416FDBAE2213C9080095B84A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		416FDBB12213C9080095B84A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		416FDBB32213C90A0095B84A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		416FDBB62213C90A0095B84A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		416FDBB82213C90A0095B84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		416FDBBD2213C90A0095B84A /* Quick FeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick FeedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +61,12 @@
 		416FDBC82213C90A0095B84A /* Quick FeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick FeedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		416FDBCC2213C90A0095B84A /* Quick_FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quick_FeedUITests.swift; sourceTree = "<group>"; };
 		416FDBCE2213C90A0095B84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41931D6B2251D391003B4A48 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewCell.swift; sourceTree = "<group>"; };
+		41B3D005225ECFC2000E1C31 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		60C9B6B42F47027336AAC6B8 /* Pods-Quick Feed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.release.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.release.xcconfig"; sourceTree = "<group>"; };
+		6730315D46D00D3C2530D6C3 /* Pods-Quick Feed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.debug.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37513C132FBA3FB116BA79E /* Pods_Quick_Feed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +95,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		094C121AA01F538B84FA4D22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6730315D46D00D3C2530D6C3 /* Pods-Quick Feed.debug.xcconfig */,
+				60C9B6B42F47027336AAC6B8 /* Pods-Quick Feed.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		412403B82239B11A000CA642 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				412403BF2245BFFD000CA642 /* LaunchVC.swift */,
+				416FDBAE2213C9080095B84A /* SignUpVC.swift */,
+				412403BB2245BECE000CA642 /* LoginVC.swift */,
+				412403B92239B15A000CA642 /* LifestyleVCViewController.swift */,
+				412403BD2245BF90000CA642 /* MainFeedVC.swift */,
+				41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */,
+				41931D6B2251D391003B4A48 /* SettingsVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		416FDBA02213C9080095B84A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +125,8 @@
 				416FDBC02213C90A0095B84A /* Quick FeedTests */,
 				416FDBCB2213C90A0095B84A /* Quick FeedUITests */,
 				416FDBAA2213C9080095B84A /* Products */,
+				094C121AA01F538B84FA4D22 /* Pods */,
+				4321AE767DE1C5C2E5406EC6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +143,14 @@
 		416FDBAB2213C9080095B84A /* Quick Feed */ = {
 			isa = PBXGroup;
 			children = (
+				412403B82239B11A000CA642 /* VC */,
 				416FDBAC2213C9080095B84A /* AppDelegate.swift */,
-				416FDBAE2213C9080095B84A /* ViewController.swift */,
 				416FDBB02213C9080095B84A /* Main.storyboard */,
-				416FDBB32213C90A0095B84A /* Assets.xcassets */,
+				412403C12245CB79000CA642 /* Assets.xcassets */,
 				416FDBB52213C90A0095B84A /* LaunchScreen.storyboard */,
 				416FDBB82213C90A0095B84A /* Info.plist */,
+				41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */,
+				41B3D005225ECFC2000E1C31 /* Recipe.swift */,
 			);
 			path = "Quick Feed";
 			sourceTree = "<group>";
@@ -125,6 +173,14 @@
 			path = "Quick FeedUITests";
 			sourceTree = "<group>";
 		};
+		4321AE767DE1C5C2E5406EC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 416FDBD12213C90A0095B84A /* Build configuration list for PBXNativeTarget "Quick Feed" */;
 			buildPhases = (
+				E530C878CD9FEA13F531BDF1 /* [CP] Check Pods Manifest.lock */,
 				416FDBA52213C9080095B84A /* Sources */,
 				416FDBA62213C9080095B84A /* Frameworks */,
 				416FDBA72213C9080095B84A /* Resources */,
+				928D29F96D7B7BC0D8641772 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,7 +258,6 @@
 					};
 					416FDBC72213C90A0095B84A = {
 						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 416FDBA82213C9080095B84A;
 					};
 				};
 			};
@@ -229,8 +286,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412403C22245CB79000CA642 /* Assets.xcassets in Resources */,
+				41FF2F6F224F000C00B0CFE2 /* GoogleService-Info.plist in Resources */,
 				416FDBB72213C90A0095B84A /* LaunchScreen.storyboard in Resources */,
-				416FDBB42213C90A0095B84A /* Assets.xcassets in Resources */,
 				416FDBB22213C9080095B84A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +309,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		928D29F96D7B7BC0D8641772 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Quick Feed/Pods-Quick Feed-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quick Feed/Pods-Quick Feed-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E530C878CD9FEA13F531BDF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Quick Feed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		416FDBA52213C9080095B84A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				416FDBAF2213C9080095B84A /* ViewController.swift in Sources */,
+				416FDBAF2213C9080095B84A /* SignUpVC.swift in Sources */,
+				412403BA2239B15A000CA642 /* LifestyleVCViewController.swift in Sources */,
+				41B3D004225EB902000E1C31 /* MainFeedViewCell.swift in Sources */,
+				41B3D006225ECFC2000E1C31 /* Recipe.swift in Sources */,
+				412403BC2245BECE000CA642 /* LoginVC.swift in Sources */,
+				412403BE2245BF90000CA642 /* MainFeedVC.swift in Sources */,
 				416FDBAD2213C9080095B84A /* AppDelegate.swift in Sources */,
+				412403C02245BFFD000CA642 /* LaunchVC.swift in Sources */,
+				41931D6C2251D391003B4A48 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,10 +546,13 @@
 		};
 		416FDBD22213C90A0095B84A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6730315D46D00D3C2530D6C3 /* Pods-Quick Feed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TT58DZNPCL;
 				INFOPLIST_FILE = "Quick Feed/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,16 +560,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kedlena.Quick-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		416FDBD32213C90A0095B84A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C9B6B42F47027336AAC6B8 /* Pods-Quick Feed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TT58DZNPCL;
 				INFOPLIST_FILE = "Quick Feed/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kedlena.Quick-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -515,9 +637,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kedlena.Quick-FeedUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Quick Feed";
 			};
 			name = Debug;
 		};
@@ -534,9 +656,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kedlena.Quick-FeedUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Quick Feed";
 			};
 			name = Release;
 		};
