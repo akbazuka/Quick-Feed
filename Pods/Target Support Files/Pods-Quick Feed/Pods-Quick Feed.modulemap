@@ -1,0 +1,6 @@
+framework module Pods_Quick_Feed {
+  umbrella header "Pods-Quick Feed-umbrella.h"
+
+  export *
+  module * { export * }
+}
