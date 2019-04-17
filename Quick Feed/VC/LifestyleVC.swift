@@ -22,9 +22,9 @@ class LifestyleVC: UIViewController {
     
     @IBAction func pushLifestyle(_ sender: UIButton) {
         LifestyleVC.lifestyleNum = sender.tag
+        print(LifestyleVC.lifestyleNum)
         UserDefaults.standard.set("\(LifestyleVC.lifestyleNum)", forKey: "lifestyle")
-        LoginVC.goTo("MainFeedVC", animate: false);
-
+        LoginVC.goTo("tabBarVC", animate: false);
     }
     
     static func loadLifestyle() -> Bool{
