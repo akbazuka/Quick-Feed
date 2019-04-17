@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		412403BA2239B15A000CA642 /* LifestyleVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403B92239B15A000CA642 /* LifestyleVCViewController.swift */; };
-		412403BC2245BECE000CA642 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403BB2245BECE000CA642 /* LoginVC.swift */; };
+		412403BA2239B15A000CA642 /* LifestyleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403B92239B15A000CA642 /* LifestyleVC.swift */; };
 		412403BE2245BF90000CA642 /* MainFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403BD2245BF90000CA642 /* MainFeedVC.swift */; };
 		412403C02245BFFD000CA642 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412403BF2245BFFD000CA642 /* LaunchVC.swift */; };
 		412403C22245CB79000CA642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412403C12245CB79000CA642 /* Assets.xcassets */; };
+		412FC89C225FD9B200703718 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412FC89B225FD9B200703718 /* LoginVC.swift */; };
+		412FC89E22617FC200703718 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412FC89D22617FC200703718 /* DetailVC.swift */; };
+		412FC8A02261856800703718 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412FC89F2261856800703718 /* FavoriteVC.swift */; };
 		416FDBAD2213C9080095B84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBAC2213C9080095B84A /* AppDelegate.swift */; };
 		416FDBAF2213C9080095B84A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FDBAE2213C9080095B84A /* SignUpVC.swift */; };
 		416FDBB22213C9080095B84A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416FDBB02213C9080095B84A /* Main.storyboard */; };
@@ -44,11 +46,13 @@
 
 /* Begin PBXFileReference section */
 		272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		412403B92239B15A000CA642 /* LifestyleVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleVCViewController.swift; sourceTree = "<group>"; };
-		412403BB2245BECE000CA642 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		412403B92239B15A000CA642 /* LifestyleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleVC.swift; sourceTree = "<group>"; };
 		412403BD2245BF90000CA642 /* MainFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedVC.swift; sourceTree = "<group>"; };
 		412403BF2245BFFD000CA642 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
 		412403C12245CB79000CA642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		412FC89B225FD9B200703718 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		412FC89D22617FC200703718 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		412FC89F2261856800703718 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		416FDBA92213C9080095B84A /* Quick Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		416FDBAC2213C9080095B84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		416FDBAE2213C9080095B84A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -109,10 +113,12 @@
 			children = (
 				412403BF2245BFFD000CA642 /* LaunchVC.swift */,
 				416FDBAE2213C9080095B84A /* SignUpVC.swift */,
-				412403BB2245BECE000CA642 /* LoginVC.swift */,
-				412403B92239B15A000CA642 /* LifestyleVCViewController.swift */,
+				412FC89B225FD9B200703718 /* LoginVC.swift */,
+				412403B92239B15A000CA642 /* LifestyleVC.swift */,
 				412403BD2245BF90000CA642 /* MainFeedVC.swift */,
+				412FC89D22617FC200703718 /* DetailVC.swift */,
 				41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */,
+				412FC89F2261856800703718 /* FavoriteVC.swift */,
 				41931D6B2251D391003B4A48 /* SettingsVC.swift */,
 			);
 			path = VC;
@@ -366,11 +372,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				416FDBAF2213C9080095B84A /* SignUpVC.swift in Sources */,
-				412403BA2239B15A000CA642 /* LifestyleVCViewController.swift in Sources */,
+				412403BA2239B15A000CA642 /* LifestyleVC.swift in Sources */,
+				412FC8A02261856800703718 /* FavoriteVC.swift in Sources */,
 				41B3D004225EB902000E1C31 /* MainFeedViewCell.swift in Sources */,
 				41B3D006225ECFC2000E1C31 /* Recipe.swift in Sources */,
-				412403BC2245BECE000CA642 /* LoginVC.swift in Sources */,
 				412403BE2245BF90000CA642 /* MainFeedVC.swift in Sources */,
+				412FC89E22617FC200703718 /* DetailVC.swift in Sources */,
+				412FC89C225FD9B200703718 /* LoginVC.swift in Sources */,
 				416FDBAD2213C9080095B84A /* AppDelegate.swift in Sources */,
 				412403C02245BFFD000CA642 /* LaunchVC.swift in Sources */,
 				41931D6C2251D391003B4A48 /* SettingsVC.swift in Sources */,

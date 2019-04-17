@@ -20,15 +20,16 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
         hideKeyboard()
         
-        /*if(LoginVC.loadUID()){
+        if(LoginVC.loadUID()){
             if(LifestyleVC.loadLifestyle()){
                 //Have user login info and lifestyle
-                goTo("MainFeedVC", animate: true)
-            }else{
+                goTo("tabBarVC", animate: true)
+            } else {
                 //Have user login info and not lifestyle
                 goTo("LifestyleVC", animate: false)
             }
-        }*/
+            print(LifestyleVC.loadLifestyle(), "Yo")
+        }
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -90,7 +91,6 @@ class SignUpVC: UIViewController {
             }
         }
     }
-    
     
     func hideKeyboard()
     {

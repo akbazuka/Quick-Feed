@@ -12,12 +12,11 @@ import MessageUI
 class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    var settingsText = ["Change Lifestyle Choice", "Contact Us", "Rate Us"]
-    var settingsImages = [UIImage(named: "outline_home_black_48pt_3x"), UIImage(named: "outline_perm_identity_black_48pt_3x"), UIImage(named: "outline_search_black_48pt_3x")]
+    var settingsText = ["Change Lifestyle Choice", "Account Login", "Contact Us", "Rate Us", "Information"]
+    var settingsImages = [UIImage(named: "restaurantPic"), UIImage(named: "identityPic"), UIImage(named: "helpPic"), UIImage(named: "outline_grade_black_48pt_3x"), UIImage(named: "infoPic"), ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     private func sendEmail(subject: String, body: String, to: String){
@@ -60,9 +59,14 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
         return settingsText.count
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+    
     //Properties of cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.font = UIFont(name: "LaoSangamMN", size: 26)
         
         //Properties; Title assigned to rows
         cell.textLabel?.text = settingsText[indexPath.row]
@@ -79,7 +83,7 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
         switch settingsText[indexPath.row] {
         case "Change Lifestyle Choice":
             
-            //Insert code
+            goTo("LifestyleVC", animate: true)
             
             break
             
@@ -91,7 +95,7 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
             
         case "Rate Us":
             
-            //INsert Code
+            //Insert Code
             
             break
             
@@ -100,5 +104,22 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
         }
     }
     
-
+    //Insert method to display app Information
+    
+    //goTo Method
+    func goTo(_ view: String, animate: Bool){
+        OperationQueue.main.addOperation {
+            func topMostController() -> UIViewController {
+                var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+                while (topController.presentedViewController != nil) {
+                    topController = topController.presentedViewController!
+                }
+                return topController
+            }
+            if let second = topMostController().storyboard?.instantiateViewController(withIdentifier: view) {
+                topMostController().present(second, animated: animate, completion: nil)
+                // topMostController().navigationController?.pushViewController(second, animated: animate)
+            }
+        }
+    }
 }
