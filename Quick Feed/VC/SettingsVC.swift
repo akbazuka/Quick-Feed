@@ -12,11 +12,12 @@ import MessageUI
 class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    var settingsText = ["Change Lifestyle Choice", "Account Login", "Contact Us", "Rate Us", "Information"]
-    var settingsImages = [UIImage(named: "restaurantPic"), UIImage(named: "identityPic"), UIImage(named: "helpPic"), UIImage(named: "outline_grade_black_48pt_3x"), UIImage(named: "infoPic"), ]
+    var settingsText = ["Change Lifestyle Choice", "Signup Page","Logout","Contact Us", "Rate Us", "Information"]
+    var settingsImages = [UIImage(named: "restaurantPic"), UIImage(named: "identityPic"),UIImage(named: "identityPic"), UIImage(named: "helpPic"), UIImage(named: "outline_grade_black_48pt_3x"), UIImage(named: "infoPic"), ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     private func sendEmail(subject: String, body: String, to: String){
@@ -82,11 +83,21 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
         
         switch settingsText[indexPath.row] {
         case "Change Lifestyle Choice":
-            
+            LifestyleVC.isFromSettings = true
             goTo("LifestyleVC", animate: true)
             
             break
             
+        case "Account Login":
+            goTo("SignUpVC", animate: true)
+            
+            break
+            
+        
+       case "Logout":
+            UserDefaults.standard.set(nil, forKey: "uID")
+            goTo("SignUpVC", animate: true)
+            break
         case "Contact Us":
             
             sendEmail(subject: "Question from User", body: "", to: "anikedz@gmail.com")
@@ -94,8 +105,6 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
             break
             
         case "Rate Us":
-            
-            //Insert Code
             
             break
             

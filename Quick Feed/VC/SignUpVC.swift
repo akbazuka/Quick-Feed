@@ -16,6 +16,8 @@ class SignUpVC: UIViewController {
     //Password Text Field
     @IBOutlet weak var passwordText: UITextField!
     
+    static var dataURL = "https://quickfeed.net/quickFeedService1.php?type="
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
@@ -37,6 +39,7 @@ class SignUpVC: UIViewController {
     //Sign-up Button
     @IBAction func signUpButton(_ sender: UIButton) {
         
+        LifestyleVC.isFromSettings = false
         //if email and password fields are not empty
         if let email = emailText.text, let password = passwordText.text,
             !password.isEmpty, !email.isEmpty {
@@ -76,7 +79,7 @@ class SignUpVC: UIViewController {
             in
             ///...
             let user = authResult?.user
-            LoginVC.saveUID()
+            UserDefaults.standard.set(user?.uid, forKey: "uID")
             
             //Checking User Value
             if user != nil{
@@ -89,8 +92,11 @@ class SignUpVC: UIViewController {
                 self.alert( title: "Error", message: "\(error?.localizedDescription ?? "Error registering account")")
                 
             }
+            
         }
     }
+    
+ 
     
     func hideKeyboard()
     {

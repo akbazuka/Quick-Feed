@@ -21,12 +21,18 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         startIndicator()
         super.viewDidLoad()
         
-        pullData { (_ data: [Recipe]) in
-            DispatchQueue.main.async {
-                self.recipeArray = data
-                self.collectionView.reloadData()
-                self.stopIndicator()
-                //Stop animating progress indicator
+        //Load user data first to get correct lifestyle ID
+        pullUserData { (success) -> Void in
+            if success{
+                //Load feed data based on correctr lifestyle ID that was loaded
+                self.pullFeedData { (_ data: [Recipe]) in
+                    DispatchQueue.main.async {
+                        self.recipeArray = data
+                        self.collectionView.reloadData()
+                        self.stopIndicator()
+                        //Stop animating progress indicator
+                    }
+                }
             }
         }
     }
@@ -40,21 +46,44 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         indicator.stopAnimating()
         indicator.isHidden = true
     }
-    func pullData(_ callBack: @escaping ([Recipe]) -> ()) {
-        var recipeArray : [Recipe] = []
-
-        let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullRecipes")
+    
+    
+    
+    func pullUserData(completion: @escaping (_ success: Bool) -> Void) {
+        let uID = UserDefaults.standard.string(forKey: "uID") ?? "-1"
+        print("UID \(uID)")
+        let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullUser&uID=\(uID)")
         URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
             guard let data = data, error == nil else {print(error!); return}
+            let decoder = JSONDecoder()
+            let userClasses = try! decoder.decode([UserStruct].self, from: data)
+            for user in userClasses{
+                print("STUFF \(user.lifestyleID)")
+                //Save new lifestyle ID
+                UserDefaults.standard.set(user.lifestyleID, forKey: "lifestyle")
+            }
             
+           
+            completion(true)
+        }).resume()
+    }
+    
+    
+    
+    
+    
+    func pullFeedData(_ callBack: @escaping ([Recipe]) -> ()) {
+        var recipeArray : [Recipe] = []
+        let savedLifestyleID = UserDefaults.standard.string(forKey: "lifestyle") ?? "5"
+        print("Lifestyle \(savedLifestyleID)")
+        let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullRecipes&lifestyleID=\(savedLifestyleID)")
+        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+            guard let data = data, error == nil else {print(error!); return}
             let decoder = JSONDecoder()
             let classes = try! decoder.decode([RecipeStruct].self, from: data)
-            
-            //
             for recipe in classes {
-                if recipe.lifeStyleID == UserDefaults.standard.string(forKey: "lifestyle"){
-                    recipeArray.append(Recipe(recipeID: recipe.recipeID, name: recipe.name, calories: recipe.calories, cookingTime: recipe.cookingTime, cuisine: recipe.cuisine, lifeStyleID: recipe.lifeStyleID/*, image: recipe.image*/))
-                }
+                recipeArray.append(Recipe(recipeID: recipe.recipeID, name: recipe.name, calories: recipe.calories, cookingTime: recipe.cookingTime, cuisine: recipe.cuisine, lifeStyleID: recipe.lifeStyleID/*, image: recipe.image*/))
+                
             }
             callBack(recipeArray)
         }).resume()

@@ -177,7 +177,7 @@
                                     <navigationItem title="Choose your Lifestyle" id="PwS-we-T3s">
                                         <barButtonItem key="leftBarButtonItem" image="back" id="yig-N3-amJ">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="lxx-65-Gjx"/>
+                                                <action selector="backButtonPressed:" destination="Xyg-gF-4RY" id="xds-6r-Kvk"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -188,6 +188,9 @@
                         <viewLayoutGuide key="safeArea" id="2kH-mX-8bf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="6tY-Gv-4Zc"/>
+                    <connections>
+                        <outlet property="backButton" destination="yig-N3-amJ" id="3K8-SF-daD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHX-BZ-6zW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -577,7 +580,4 @@
         <image name="veganButton" width="186.66667175292969" height="210"/>
         <image name="vegetarianButton" width="413.66665649414062" height="257.66665649414062"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wCd-Bt-ZHw"/>
-    </inferredMetricsTieBreakers>
 </document>

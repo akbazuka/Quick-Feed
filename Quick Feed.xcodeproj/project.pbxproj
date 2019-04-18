@@ -25,6 +25,7 @@
 		41B3D006225ECFC2000E1C31 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3D005225ECFC2000E1C31 /* Recipe.swift */; };
 		41FF2F6F224F000C00B0CFE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */; };
 		D37513C132FBA3FB116BA79E /* Pods_Quick_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */; };
+		DA5C1FD12267ED9F0027502E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C1FD02267ED9F0027502E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60C9B6B42F47027336AAC6B8 /* Pods-Quick Feed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.release.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.release.xcconfig"; sourceTree = "<group>"; };
 		6730315D46D00D3C2530D6C3 /* Pods-Quick Feed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.debug.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.debug.xcconfig"; sourceTree = "<group>"; };
+		DA5C1FD02267ED9F0027502E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,8 @@
 		412403B82239B11A000CA642 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				41B3D005225ECFC2000E1C31 /* Recipe.swift */,
+				DA5C1FD02267ED9F0027502E /* User.swift */,
 				412403BF2245BFFD000CA642 /* LaunchVC.swift */,
 				416FDBAE2213C9080095B84A /* SignUpVC.swift */,
 				412FC89B225FD9B200703718 /* LoginVC.swift */,
@@ -156,7 +160,6 @@
 				416FDBB52213C90A0095B84A /* LaunchScreen.storyboard */,
 				416FDBB82213C90A0095B84A /* Info.plist */,
 				41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */,
-				41B3D005225ECFC2000E1C31 /* Recipe.swift */,
 			);
 			path = "Quick Feed";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				412403BE2245BF90000CA642 /* MainFeedVC.swift in Sources */,
 				412FC89E22617FC200703718 /* DetailVC.swift in Sources */,
 				412FC89C225FD9B200703718 /* LoginVC.swift in Sources */,
+				DA5C1FD12267ED9F0027502E /* User.swift in Sources */,
 				416FDBAD2213C9080095B84A /* AppDelegate.swift in Sources */,
 				412403C02245BFFD000CA642 /* LaunchVC.swift in Sources */,
 				41931D6C2251D391003B4A48 /* SettingsVC.swift in Sources */,

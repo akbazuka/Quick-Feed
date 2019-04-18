@@ -15,20 +15,20 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     
+    $type = $_GET["type"];
+    $uID = $_GET["uID"];
+    $lifestyleID = $_GET["lifestyleID"];
     
-    
-    $type = &_GET["type"]
-    $uID = &_GET["uID"]
-    $lifestyleID = &_GET["lifestyleID"]
-    
-    
-    
+
     // This SQL statement selects ALL from the table 'Recipes'
-    
     if($type == "pullRecipes"){
-        $sql = "SELECT r.RecipeID, RecipeName, Calories, CookingTime, Cuisine, LifeStyleID FROM Recipes r join LifeStyle_Recipes l on r.RecipeID = l.RecipeID;";
+        $sql = "SELECT r.RecipeID, RecipeName, Calories, CookingTime, Cuisine, LifeStyleID FROM Recipes r join LifeStyle_Recipes l on r.RecipeID = l.RecipeID where lifestyleID = '$lifestyleID';";
         
+    }elseif ($type == "pullUser"){
+        $sql = "select LifeStyleID as lifestyleID from Registration where RegistrationID = '$uID' ";
     }elseif ($type == "insertUser"){
+
+        //insert from url: quickfeed.net/quickFeedService1.php?type=insertUser&uID=someuIDa&lifestyleID=somelifestyleID
         $sql = "insert into Registration values ('$uID','$lifestyleID');";
     }
     

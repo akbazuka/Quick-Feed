@@ -48,14 +48,11 @@ class LoginVC : UIViewController{
         
     }
     
-    //Saves UID
-    static func saveUID(){
-        UserDefaults.standard.set(Auth.auth().currentUser!.uid, forKey: "uid")
-    }
+
     
     //Loads UID
     static func loadUID()-> Bool{
-        LoginVC.UID = UserDefaults.standard.string(forKey:"uid")
+        LoginVC.UID = UserDefaults.standard.string(forKey:"uID")
         return LoginVC.UID != nil
     }
     
@@ -66,8 +63,10 @@ class LoginVC : UIViewController{
             if user != nil {
                 print("User is authenticated (user has an account)")
                 print("Email:\(email)")
-                LoginVC.saveUID()
                 
+                //save uID using key 'uID'
+                UserDefaults.standard.set(user?.user.uid, forKey: "uID")
+
                 //Go to Main Feed
                 LoginVC.goTo("tabBarVC", animate: true)
                 
