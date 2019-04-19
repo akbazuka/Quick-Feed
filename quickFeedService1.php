@@ -22,7 +22,7 @@
 
     // This SQL statement selects ALL from the table 'Recipes'
     if($type == "pullRecipes"){
-        $sql = "SELECT r.RecipeID, RecipeName, Calories, CookingTime, Cuisine, LifeStyleID FROM Recipes r join LifeStyle_Recipes l on r.RecipeID = l.RecipeID where lifestyleID = '$lifestyleID';";
+        $sql = "SELECT r.RecipeID, RecipeName, Calories, CookingTime, Cuisine, Image, Directions, LifeStyleID FROM Recipes r join LifeStyle_Recipes l on r.RecipeID = l.RecipeID where lifestyleID = '$lifestyleID';";
         
     }elseif ($type == "pullUser"){
         $sql = "select LifeStyleID as lifestyleID from Registration where RegistrationID = '$uID' ";
@@ -53,10 +53,10 @@
         while ($row = $result->fetch_object()) {
             
             // Add each row into our results array
-            
             $tempArray = $row;
-            
             array_push($resultArray, $tempArray);
+            
+            //echo $row->Image;
             
         }
         

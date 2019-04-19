@@ -14,5 +14,5 @@ class MainFeedViewCell: UICollectionViewCell {
     @IBOutlet weak var recipeCalories: UILabel!
     @IBOutlet weak var recipeCookingTime: UILabel!
     @IBOutlet weak var recipeCuisine: UILabel!
-    //@IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeImage: UIImageView!
 }

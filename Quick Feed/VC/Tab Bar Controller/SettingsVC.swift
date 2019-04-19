@@ -12,8 +12,8 @@ import MessageUI
 class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    var settingsText = ["Change Lifestyle Choice", "Signup Page","Logout","Contact Us", "Rate Us", "Information"]
-    var settingsImages = [UIImage(named: "restaurantPic"), UIImage(named: "identityPic"),UIImage(named: "identityPic"), UIImage(named: "helpPic"), UIImage(named: "outline_grade_black_48pt_3x"), UIImage(named: "infoPic"), ]
+    var settingsText = ["Change Lifestyle Choice"/*, "Signup Page"*/,"Contact Us", "Rate Us", "Information", "Logout"]
+    var settingsImages = [UIImage(named: "restaurantPic")/*, UIImage(named: "identityPic")*/, UIImage(named: "helpPic"), UIImage(named: "outline_grade_black_48pt_3x"), UIImage(named: "infoPic"), UIImage(named: "exit"), ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,15 +87,20 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
             goTo("LifestyleVC", animate: true)
             
             break
-            
+        
+            /*
         case "Account Login":
             goTo("SignUpVC", animate: true)
             
             break
-            
+            */
+        case "Information":
+            goTo("InformationVC", animate: true)
+            break
         
        case "Logout":
             UserDefaults.standard.set(nil, forKey: "uID")
+            UserDefaults.standard.set(nil, forKey: "lifestyle")
             goTo("SignUpVC", animate: true)
             break
         case "Contact Us":
@@ -112,7 +117,6 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
             break
         }
     }
-    
     //Insert method to display app Information
     
     //goTo Method

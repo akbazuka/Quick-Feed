@@ -13,12 +13,12 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    
+    //Declare Recipe array to store recipes pulled from database
     var recipeArray : [Recipe] = []
     
     override func viewDidLoad() {
 
-        startIndicator()
+        startIndicator() //Starts progress indicator
         super.viewDidLoad()
         
         //Load user data first to get correct lifestyle ID
@@ -29,64 +29,56 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
                     DispatchQueue.main.async {
                         self.recipeArray = data
                         self.collectionView.reloadData()
-                        self.stopIndicator()
-                        //Stop animating progress indicator
+                        self.stopIndicator() //Stop animating progress indicator
                     }
                 }
             }
         }
     }
     
+    //Starts animating progress indicator
     func startIndicator(){
         indicator.startAnimating()
         indicator.isHidden = false
         
     }
+    //Stops animating progress indicator
     func stopIndicator(){
         indicator.stopAnimating()
         indicator.isHidden = true
     }
     
-    
-    
     func pullUserData(completion: @escaping (_ success: Bool) -> Void) {
-        let uID = UserDefaults.standard.string(forKey: "uID") ?? "-1"
-        print("UID \(uID)")
-        let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullUser&uID=\(uID)")
-        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-            guard let data = data, error == nil else {print(error!); return}
-            let decoder = JSONDecoder()
-            let userClasses = try! decoder.decode([UserStruct].self, from: data)
-            for user in userClasses{
-                print("STUFF \(user.lifestyleID)")
-                //Save new lifestyle ID
-                UserDefaults.standard.set(user.lifestyleID, forKey: "lifestyle")
-            }
-            
-           
-            completion(true)
-        }).resume()
+            let uID = UserDefaults.standard.string(forKey: "uID") ?? "-1"
+            print("UID \(uID)")
+            let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullUser&uID=\(uID)")
+            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                guard let data = data, error == nil else {print(error!); return}
+                let decoder = JSONDecoder()
+                let userClasses = try! decoder.decode([UserStruct].self, from: data)
+                for user in userClasses{
+                    print("STUFF \(user.lifestyleID)")
+                    //Save new lifestyle ID
+                    UserDefaults.standard.set(user.lifestyleID, forKey: "lifestyle")
+                }
+                completion(true)
+            }).resume()
     }
-    
-    
-    
-    
-    
+
     func pullFeedData(_ callBack: @escaping ([Recipe]) -> ()) {
-        var recipeArray : [Recipe] = []
-        let savedLifestyleID = UserDefaults.standard.string(forKey: "lifestyle") ?? "5"
-        print("Lifestyle \(savedLifestyleID)")
-        let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullRecipes&lifestyleID=\(savedLifestyleID)")
-        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-            guard let data = data, error == nil else {print(error!); return}
-            let decoder = JSONDecoder()
-            let classes = try! decoder.decode([RecipeStruct].self, from: data)
-            for recipe in classes {
-                recipeArray.append(Recipe(recipeID: recipe.recipeID, name: recipe.name, calories: recipe.calories, cookingTime: recipe.cookingTime, cuisine: recipe.cuisine, lifeStyleID: recipe.lifeStyleID/*, image: recipe.image*/))
-                
-            }
-            callBack(recipeArray)
-        }).resume()
+            var recipeArray : [Recipe] = []
+            let savedLifestyleID = UserDefaults.standard.string(forKey: "lifestyle") ?? "5"
+            print("Lifestyle \(savedLifestyleID)")
+            let url = URL(string:"http://quickfeed.net/quickFeedService1.php?type=pullRecipes&lifestyleID=\(savedLifestyleID)")
+            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                guard let data = data, error == nil else {print(error!); return}
+                let decoder = JSONDecoder()
+                let classes = try! decoder.decode([RecipeStruct].self, from: data)
+                for recipe in classes {
+                    recipeArray.append(Recipe(recipeID: recipe.recipeID, name: recipe.name, calories: recipe.calories, cookingTime: recipe.cookingTime, cuisine: recipe.cuisine, lifeStyleID: recipe.lifeStyleID, directions: recipe.directions/*, image: recipe.image*/))
+                }
+                callBack(recipeArray)
+            }).resume()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -95,6 +87,9 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MainFeedViewCell
+        //Rounds Cell's Corners
+        cell.layer.cornerRadius = 10.0
+        
         cell.recipeName.text = recipeArray[indexPath.row].name
         cell.recipeName.font = UIFont(name: "LaoSangamMN", size: 18)
         
@@ -107,7 +102,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         cell.recipeCuisine.text = "Cuisine: " + recipeArray[indexPath.row].cuisine
         cell.recipeCuisine.font = UIFont(name: "LaoSangamMN", size: 18)
         
-        //cell.recipeImage.image = strToImage(recipeArray[indexPath.row].image)
+        //cell.recipeImage.image = loadURLImage(recipeArray[indexPath.row].image)
         
         return cell
     }
@@ -118,12 +113,8 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         DetailVC.caloriesString = cell.calories
         DetailVC.cookingTimeString = cell.cookingTime
         DetailVC.cuisineString = cell.cuisine
+        DetailVC.directionsString = cell.directions
         goTo("DetailVC", animate: true)
-    }
-    
-    //String to Image
-    func strToImage(_ str : String)-> UIImage{
-        return UIImage(data: NSData(base64Encoded: str, options: NSData.Base64DecodingOptions(rawValue: 0))! as Data)!
     }
     
     //Help Direct Initial VC to Navigation Controller
@@ -139,7 +130,6 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
             if let second = topMostController().storyboard?.instantiateViewController(withIdentifier: view) {
                 topMostController().present(second, animated: animate, completion: nil)
                 // topMostController().navigationController?.pushViewController(second, animated: animate)
-                
             }
         }
     }

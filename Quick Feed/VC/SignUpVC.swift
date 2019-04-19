@@ -16,6 +16,8 @@ class SignUpVC: UIViewController {
     //Password Text Field
     @IBOutlet weak var passwordText: UITextField!
     
+    static var guestUser = 0
+    
     static var dataURL = "https://quickfeed.net/quickFeedService1.php?type="
     
     override func viewDidLoad() {
@@ -36,6 +38,11 @@ class SignUpVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func guestUserButtonIsPressed(_ sender: UIButton) {
+        
+        SignUpVC.guestUser = 1;
+    }
+    
     //Sign-up Button
     @IBAction func signUpButton(_ sender: UIButton) {
         
@@ -52,9 +59,7 @@ class SignUpVC: UIViewController {
             
             //Error Message
             alert(title: "Error", message: "Text fields cannot be empty")
-            
         }
-        
     }
     
     //Text Alert
@@ -66,7 +71,6 @@ class SignUpVC: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         //Presnt to Screen
         present(alert,animated: true,completion: nil)
-        
     }
     
     //Authenticate User Sign-ups
@@ -90,13 +94,9 @@ class SignUpVC: UIViewController {
             else {
                 //Error goes here if trouble logging in
                 self.alert( title: "Error", message: "\(error?.localizedDescription ?? "Error registering account")")
-                
             }
-            
         }
     }
-    
- 
     
     func hideKeyboard()
     {

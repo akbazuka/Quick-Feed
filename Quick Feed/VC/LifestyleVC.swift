@@ -20,32 +20,34 @@ class LifestyleVC: UIViewController {
 
         // Do any additional setup after loading the view, typically from a nib.
         
-        
     }
-    
-    
     
     @IBAction func backButtonPressed(_ sender: Any) {
         if LifestyleVC.isFromSettings{
             backButton.isEnabled = true
             self.goTo("tabBarVC", animate: true)
             
-        }else{
+        } else{
             backButton.isEnabled = false
             self.goTo("SignUpVC", animate: true)
         }
-        
-        
-        
-        
     }
     
     @IBAction func pushLifestyle(_ sender: UIButton) {
         LifestyleVC.lifestyleNum = sender.tag
-        print(LifestyleVC.lifestyleNum)
         UserDefaults.standard.set("\(LifestyleVC.lifestyleNum)", forKey: "lifestyle")
-        pushUser(uID: UserDefaults.standard.string(forKey: "uID") ?? "-1", lifestyleID: "\(LifestyleVC.lifestyleNum)")
-        LoginVC.goTo("tabBarVC", animate: false);
+        print(LifestyleVC.lifestyleNum)
+        if LifestyleVC.isFromSettings{
+            
+            
+          
+            
+        } else{
+            //Push Lifestyle to Database
+            pushUser(uID: UserDefaults.standard.string(forKey: "uID") ?? "-1", lifestyleID: "\(LifestyleVC.lifestyleNum)")
+            LoginVC.goTo("tabBarVC", animate: false)
+        }
+       
     }
     
     static func loadLifestyle() -> Bool{

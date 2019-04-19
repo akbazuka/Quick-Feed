@@ -14,11 +14,13 @@ class DetailVC: UIViewController{
     @IBOutlet weak var calories: UILabel!
     @IBOutlet weak var cookingTime: UILabel!
     @IBOutlet weak var cuisine: UILabel!
+    @IBOutlet weak var directions: UITextView!
     
     static var nameString = ""
     static var caloriesString = ""
     static var cookingTimeString = ""
     static var cuisineString = ""
+    static var directionsString = ""
     
     
     override func viewDidLoad() {
@@ -29,15 +31,15 @@ class DetailVC: UIViewController{
         calories.text = "Calories: " + DetailVC.caloriesString
         cookingTime.text = "Cooking Time: " + DetailVC.cookingTimeString
         cuisine.text = "Cuisine: " + DetailVC.cuisineString
+        directions.text = DetailVC.directionsString
         self.navigationItem.hidesBackButton = false
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(DetailVC.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
-        
-        
+        directions.layer.cornerRadius = 10.0
     }
     
     @IBAction func favPressed(_ sender: Any) {
-        FavoriteVC.favoriteArray.append(Recipe(recipeID: "", name: DetailVC.nameString, calories: DetailVC.caloriesString, cookingTime: DetailVC.cookingTimeString, cuisine: DetailVC.cuisineString, lifeStyleID: ""))
+        //FavoriteVC.favoriteArray.append(Recipe(recipeID: "", name: DetailVC.nameString, calories: DetailVC.caloriesString, cookingTime: DetailVC.cookingTimeString, cuisine: DetailVC.cuisineString, lifeStyleID: ""))
        // self.goTo("FavoriteVC", animate: true)
         alert(title: "Added to favorites", message: "done")
         
