@@ -36,10 +36,12 @@ class LifestyleVC: UIViewController {
     @IBAction func pushLifestyle(_ sender: UIButton) {
         LifestyleVC.lifestyleNum = sender.tag
         UserDefaults.standard.set("\(LifestyleVC.lifestyleNum)", forKey: "lifestyle")
-        print(LifestyleVC.lifestyleNum)
+        print("Sender tag \(sender.tag)")
+        print("Lifesytle \(UserDefaults.standard.string(forKey: "lifestyle"))")
         if LifestyleVC.isFromSettings{
             
-            
+            updateLifesetyle(lifestyleID: "\(LifestyleVC.lifestyleNum)", uID: UserDefaults.standard.string(forKey: "uID") ?? "-1")
+             LoginVC.goTo("tabBarVC", animate: false)
           
             
         } else{
@@ -60,6 +62,24 @@ class LifestyleVC: UIViewController {
         
         //Create url string
         let urlString = SignUpVC.dataURL + "insertUser&uID=\(uID)&lifestyleID=\(lifestyleID)"
+        
+        //Encode url
+        let result = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Error"
+        
+        //Create url
+        guard let url = URL(string: result) else { return }
+        
+        //Send url
+        URLSession.shared.dataTask(with: url).resume()
+        
+        print("URL Sent: \(url)")
+    }
+    
+    //Update lifestyle in database
+    func updateLifesetyle(lifestyleID: String,uID: String){
+        
+        //Create url string
+        let urlString = SignUpVC.dataURL + "updateLifestyle&lifestyleID=\(lifestyleID)&uID=\(uID)"
         
         //Encode url
         let result = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Error"

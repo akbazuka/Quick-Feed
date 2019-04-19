@@ -24,6 +24,8 @@
     if($type == "pullRecipes"){
         $sql = "SELECT r.RecipeID, RecipeName, Calories, CookingTime, Cuisine, Image, Directions, LifeStyleID FROM Recipes r join LifeStyle_Recipes l on r.RecipeID = l.RecipeID where lifestyleID = '$lifestyleID';";
         
+    }elseif ($type == "updateLifestyle"){
+        $sql = "update Registration set LifeStyleID = '$lifestyleID' where RegistrationID = '$uID';";
     }elseif ($type == "pullUser"){
         $sql = "select LifeStyleID as lifestyleID from Registration where RegistrationID = '$uID' ";
     }elseif ($type == "insertUser"){

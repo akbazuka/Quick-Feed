@@ -17,7 +17,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
     var recipeArray : [Recipe] = []
     
     override func viewDidLoad() {
-
+        print("Hello")
         startIndicator() //Starts progress indicator
         super.viewDidLoad()
         
