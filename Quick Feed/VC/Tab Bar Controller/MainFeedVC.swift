@@ -48,6 +48,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         indicator.isHidden = true
     }
     
+    //Pulls user data from PHP file
     func pullUserData(completion: @escaping (_ success: Bool) -> Void) {
             let uID = UserDefaults.standard.string(forKey: "uID") ?? "-1"
             print("UID \(uID)")
@@ -65,6 +66,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
             }).resume()
     }
 
+    //Pulls feed data from php file
     func pullFeedData(_ callBack: @escaping ([Recipe]) -> ()) {
             var recipeArray : [Recipe] = []
             let savedLifestyleID = UserDefaults.standard.string(forKey: "lifestyle") ?? "5"
@@ -81,6 +83,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
             }).resume()
     }
     
+    //Counts number of items in Recipe Array
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recipeArray.count
     }
@@ -107,6 +110,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
+    //Collection View on Main Feed to show each recipe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = recipeArray[indexPath.row]
         DetailVC.nameString = cell.name

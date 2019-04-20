@@ -862,6 +862,9 @@ Cgo
                                 <rect key="frame" x="16" y="16" width="36" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonPressedInfo:" destination="K2d-cw-UaM" eventType="touchUpInside" id="NOx-fr-4UQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97314006090000005" green="0.51624470950000001" blue="0.41641300920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

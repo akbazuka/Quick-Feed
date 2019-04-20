@@ -27,7 +27,9 @@ class InformationVC: UIViewController{
             true)
     }
     
-    /*@IBAction func backButtonPressedInfo(_ sender: UIButton) {
+    @IBAction func backButtonPressedInfo(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
-    }*/
+        //self.performSegue:@"showTabBar" sender:senderButton as [Any]
+        }
+        
 }
