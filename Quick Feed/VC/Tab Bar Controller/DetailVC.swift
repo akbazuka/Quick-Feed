@@ -21,6 +21,7 @@ class DetailVC: UIViewController{
     static var cookingTimeString = ""
     static var cuisineString = ""
     static var directionsString = ""
+    static var recipeID = ""
     
     
     override func viewDidLoad() {
@@ -39,8 +40,7 @@ class DetailVC: UIViewController{
     }
     
     @IBAction func favPressed(_ sender: Any) {
-        //FavoriteVC.favoriteArray.append(Recipe(recipeID: "", name: DetailVC.nameString, calories: DetailVC.caloriesString, cookingTime: DetailVC.cookingTimeString, cuisine: DetailVC.cuisineString, lifeStyleID: ""))
-       // self.goTo("FavoriteVC", animate: true)
+        pushFav(uID: UserDefaults.standard.string(forKey: "uID") ?? "-1", recipeID: DetailVC.recipeID)
         alert(title: "Added to favorites", message: "done")
         
     }
@@ -48,6 +48,25 @@ class DetailVC: UIViewController{
     @IBAction func backPressed(_ sender: UIButton) {
         
         //self.goTo("TabBarVC", animate: true)
+    }
+    
+    
+    //Push user name to database
+    func pushFav(uID: String, recipeID: String){
+        
+        //Create url string
+        let urlString = SignUpVC.dataURL + "insertFav&uID=\(uID)&recipeID=\(recipeID)"
+        
+        //Encode url
+        let result = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Error"
+        
+        //Create url
+        guard let url = URL(string: result) else { return }
+        
+        //Send url
+        URLSession.shared.dataTask(with: url).resume()
+        
+        print("URL Sent: \(url)")
     }
     //Text Alert
     func alert(title: String, message: String) {

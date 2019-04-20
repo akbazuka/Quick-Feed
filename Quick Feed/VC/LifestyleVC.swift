@@ -39,10 +39,16 @@ class LifestyleVC: UIViewController {
         print("Sender tag \(sender.tag)")
         print("Lifesytle \(UserDefaults.standard.string(forKey: "lifestyle"))")
         if LifestyleVC.isFromSettings{
+            updateLifesetyle(lifestyleID: "\(LifestyleVC.lifestyleNum)", uID: UserDefaults.standard.string(forKey: "uID") ?? "-1",completion: {( success) -> Void in
+                if success{
+                    LoginVC.goTo("tabBarVC", animate: false)
+                    
+                    
+                }
+                
+                
+            })
             
-            updateLifesetyle(lifestyleID: "\(LifestyleVC.lifestyleNum)", uID: UserDefaults.standard.string(forKey: "uID") ?? "-1")
-             LoginVC.goTo("tabBarVC", animate: false)
-          
             
         } else{
             //Push Lifestyle to Database
@@ -76,7 +82,7 @@ class LifestyleVC: UIViewController {
     }
     
     //Update lifestyle in database
-    func updateLifesetyle(lifestyleID: String,uID: String){
+    func updateLifesetyle(lifestyleID: String,uID: String,completion: (_ success: Bool) -> Void){
         
         //Create url string
         let urlString = SignUpVC.dataURL + "updateLifestyle&lifestyleID=\(lifestyleID)&uID=\(uID)"
@@ -91,6 +97,7 @@ class LifestyleVC: UIViewController {
         URLSession.shared.dataTask(with: url).resume()
         
         print("URL Sent: \(url)")
+        completion(true)
     }
     
     //Help Direct Initial VC to Navigation Controller

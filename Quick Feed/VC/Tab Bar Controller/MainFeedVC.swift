@@ -17,21 +17,24 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
     var recipeArray : [Recipe] = []
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         print("Hello")
         startIndicator() //Starts progress indicator
-        super.viewDidLoad()
         
         //Load user data first to get correct lifestyle ID
         pullUserData { (success) -> Void in
             if success{
-                //Load feed data based on correctr lifestyle ID that was loaded
-                self.pullFeedData { (_ data: [Recipe]) in
-                    DispatchQueue.main.async {
-                        self.recipeArray = data
-                        self.collectionView.reloadData()
-                        self.stopIndicator() //Stop animating progress indicator
+                    //Load feed data based on correctr lifestyle ID that was loaded
+                    self.pullFeedData { (_ data: [Recipe]) in
+                        DispatchQueue.main.async {
+                            self.recipeArray = data
+                            self.collectionView.reloadData()
+                            self.stopIndicator() //Stop animating progress indicator
+                        }
                     }
-                }
+                    
+                
+                
             }
         }
     }
@@ -60,6 +63,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 for user in userClasses{
                     print("STUFF \(user.lifestyleID)")
                     //Save new lifestyle ID
+
                     UserDefaults.standard.set(user.lifestyleID, forKey: "lifestyle")
                 }
                 completion(true)
@@ -82,6 +86,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
                 callBack(recipeArray)
             }).resume()
     }
+
     
     //Counts number of items in Recipe Array
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -118,6 +123,7 @@ class MainFeedVC : UIViewController, UICollectionViewDelegate, UICollectionViewD
         DetailVC.cookingTimeString = cell.cookingTime
         DetailVC.cuisineString = cell.cuisine
         DetailVC.directionsString = cell.directions
+        DetailVC.recipeID = cell.recipeID
         goTo("DetailVC", animate: true)
     }
     

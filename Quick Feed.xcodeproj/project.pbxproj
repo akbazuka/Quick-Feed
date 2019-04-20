@@ -26,6 +26,7 @@
 		41E985502268999F0021DD50 /* InformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9854F2268999F0021DD50 /* InformationVC.swift */; };
 		41FF2F6F224F000C00B0CFE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */; };
 		D37513C132FBA3FB116BA79E /* Pods_Quick_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */; };
+		DA2C3C0E226AA94D00047034 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C3C0D226AA94D00047034 /* Favorite.swift */; };
 		DA5C1FD12267ED9F0027502E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C1FD02267ED9F0027502E /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60C9B6B42F47027336AAC6B8 /* Pods-Quick Feed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.release.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.release.xcconfig"; sourceTree = "<group>"; };
 		6730315D46D00D3C2530D6C3 /* Pods-Quick Feed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.debug.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.debug.xcconfig"; sourceTree = "<group>"; };
+		DA2C3C0D226AA94D00047034 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		DA5C1FD02267ED9F0027502E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			children = (
 				41E9854A226893180021DD50 /* Tab Bar Controller */,
 				41B3D005225ECFC2000E1C31 /* Recipe.swift */,
+				DA2C3C0D226AA94D00047034 /* Favorite.swift */,
 				DA5C1FD02267ED9F0027502E /* User.swift */,
 				412403BF2245BFFD000CA642 /* LaunchVC.swift */,
 				416FDBAE2213C9080095B84A /* SignUpVC.swift */,
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				416FDBAF2213C9080095B84A /* SignUpVC.swift in Sources */,
+				DA2C3C0E226AA94D00047034 /* Favorite.swift in Sources */,
 				412403BA2239B15A000CA642 /* LifestyleVC.swift in Sources */,
 				412FC8A02261856800703718 /* FavoriteVC.swift in Sources */,
 				41B3D004225EB902000E1C31 /* MainFeedViewCell.swift in Sources */,
