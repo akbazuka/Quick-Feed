@@ -41,6 +41,7 @@ class SignUpVC: UIViewController {
     @IBAction func guestUserButtonIsPressed(_ sender: UIButton) {
         
         SignUpVC.guestUser = 1;
+        LifestyleVC.isFromSettings = false
     }
     
     //Sign-up Button
@@ -88,6 +89,7 @@ class SignUpVC: UIViewController {
             //Checking User Value
             if user != nil{
                 self.goTo("LifestyleVC", animate: true)
+                LifestyleVC.isFromSettings = false
                 //print("User is NOT NIL")
             }
                 

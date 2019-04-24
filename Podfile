@@ -10,9 +10,9 @@ target 'Quick Feed' do
 
 	pod 'Firebase/Core'
 
-
-
 	pod 'Firebase/Auth'
+
+	pod 'Alamofire'
 
 
 end

@@ -81,6 +81,9 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
     //Selecting a specific row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //Unselects table view cell after clicking
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         switch settingsText[indexPath.row] {
         case "Change Lifestyle Choice":
             LifestyleVC.isFromSettings = true
@@ -100,7 +103,8 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
         
        case "Logout":
             UserDefaults.standard.set(nil, forKey: "uID")
-            UserDefaults.standard.set(nil, forKey: "lifestyle")
+            LifestyleVC.lifestyleNum = -1
+            LifestyleVC.saveLifeStyle()
             goTo("SignUpVC", animate: true)
             break
         case "Contact Us":
@@ -110,6 +114,7 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
             break
             
         case "Rate Us":
+            alert(title: "Inactive Button", message: "This button is not active yet")
             
             break
             
@@ -117,7 +122,17 @@ class SettingsVC: UIViewController, MFMailComposeViewControllerDelegate, UITable
             break
         }
     }
-    //Insert method to display app Information
+    
+    //Alert Method
+    func alert(title: String, message: String) {
+        
+        //Error Title
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        //Action Title
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        //Presnt to Screen
+        present(alert,animated: true,completion: nil)
+    }
     
     //goTo Method
     func goTo(_ view: String, animate: Bool){

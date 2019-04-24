@@ -38,6 +38,8 @@ class LoginVC : UIViewController{
             
             //Calls authenticateNewUser method
             authenticateUser(email: email, password: password)
+            //LifestyleVC.loadLifestyle() //Fix this, has to load User's saved UID from Database
+            print("Lifestyle ID: ", LifestyleVC.loadLifestyle())
         }
         
         else{
@@ -47,8 +49,6 @@ class LoginVC : UIViewController{
         }
         
     }
-    
-
     
     //Loads UID
     static func loadUID()-> Bool{

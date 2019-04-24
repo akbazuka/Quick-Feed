@@ -6,6 +6,7 @@
 //  Copyright © 2019 Kedlena. All rights reserved.
 //
 import UIKit
+import Alamofire
 
 struct RecipeStruct: Codable {
     
@@ -14,7 +15,7 @@ struct RecipeStruct: Codable {
     let calories: String
     let cookingTime: String
     let cuisine: String
-    //let image: String
+    let image: String
     let directions: String
     let lifeStyleID: String
     enum CodingKeys: String, CodingKey {
@@ -23,7 +24,7 @@ struct RecipeStruct: Codable {
         case calories = "Calories"
         case cookingTime = "CookingTime"
         case cuisine = "Cuisine"
-        //case image = "Image"
+        case image = "Image"
         case directions = "Directions"
         case lifeStyleID = "LifeStyleID"
     }
@@ -38,9 +39,10 @@ class Recipe{
     var cuisine: String
     var directions: String
     var lifeStyleID: String
-    //var image: String
+    var imageURL: String
+    var pulledImg: UIImage? = nil
     
-    init(recipeID: String, name: String, calories: String, cookingTime: String, cuisine: String, lifeStyleID: String, directions: String/*, image: String*/){
+    init(recipeID: String, name: String, calories: String, cookingTime: String, cuisine: String, lifeStyleID: String, directions: String, imageURL: String, completion: @escaping () -> Void){
         self.recipeID = recipeID
         self.name = name
         self.calories = calories
@@ -48,7 +50,28 @@ class Recipe{
         self.cuisine = cuisine
         self.directions = directions
         self.lifeStyleID = lifeStyleID
-        //self.image = image
+        self.imageURL = imageURL
+        
+        pullImage(URL: imageURL) { (_ image: UIImage?) in
+            self.pulledImg = image
+            completion()
+        }
+    }
+    
+    //Pulls image with Alamofire
+    func pullImage(URL: String, completion: @escaping (_ image: UIImage?) -> Void){
+        Alamofire.request(URL).responseData { (response) in
+            if response.error == nil {
+                print(response.result)
+                
+                // Show the downloaded image:
+                if let data = response.data {
+                    completion(UIImage(data:data))
+                    return
+                }
+            }
+            completion(nil)
+        }
     }
 }
 

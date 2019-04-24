@@ -12,20 +12,28 @@ import UIKit
 class LifestyleVC: UIViewController {
     static var lifestyleNum = -1
     
-    static var isFromSettings = true
+    static var isFromSettings = false
 
     @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
+    @objc func pushToNextVC() {
+        
+        let newVC = UIViewController()
+        self.navigationController?.pushViewController(newVC, animated:
+            true)
+    }
+
+    //Back button Pressed
     @IBAction func backButtonPressed(_ sender: Any) {
         if LifestyleVC.isFromSettings{
             backButton.isEnabled = true
-            self.goTo("tabBarVC", animate: true)
+            self.goTo("SettingsVC", animate: true)
+            dismiss(animated: true, completion: nil)
             
         } else{
             backButton.isEnabled = false
@@ -35,27 +43,27 @@ class LifestyleVC: UIViewController {
     
     @IBAction func pushLifestyle(_ sender: UIButton) {
         LifestyleVC.lifestyleNum = sender.tag
-        UserDefaults.standard.set("\(LifestyleVC.lifestyleNum)", forKey: "lifestyle")
+        print("Test tag: \(sender.tag)")
+        //UserDefaults.standard.set("\(LifestyleVC.lifestyleNum)", forKey: "lifestyle")
+        LifestyleVC.saveLifeStyle() //Set Lifestyle
         print("Sender tag \(sender.tag)")
-        print("Lifesytle \(UserDefaults.standard.string(forKey: "lifestyle"))")
+        print("Lifesytle: \(UserDefaults.standard.string(forKey: "lifestyle"))")
         if LifestyleVC.isFromSettings{
             updateLifesetyle(lifestyleID: "\(LifestyleVC.lifestyleNum)", uID: UserDefaults.standard.string(forKey: "uID") ?? "-1",completion: {( success) -> Void in
                 if success{
                     LoginVC.goTo("tabBarVC", animate: false)
-                    
-                    
                 }
-                
-                
             })
-            
-            
         } else{
             //Push Lifestyle to Database
             pushUser(uID: UserDefaults.standard.string(forKey: "uID") ?? "-1", lifestyleID: "\(LifestyleVC.lifestyleNum)")
             LoginVC.goTo("tabBarVC", animate: false)
         }
        
+    }
+    
+    static func saveLifeStyle(){
+        UserDefaults.standard.set("\(LifestyleVC.lifestyleNum)", forKey: "lifestyle")
     }
     
     static func loadLifestyle() -> Bool{

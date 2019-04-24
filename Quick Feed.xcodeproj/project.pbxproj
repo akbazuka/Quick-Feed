@@ -24,6 +24,7 @@
 		41B3D004225EB902000E1C31 /* MainFeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */; };
 		41B3D006225ECFC2000E1C31 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3D005225ECFC2000E1C31 /* Recipe.swift */; };
 		41E985502268999F0021DD50 /* InformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9854F2268999F0021DD50 /* InformationVC.swift */; };
+		41E98552226DB8840021DD50 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E98551226DB8840021DD50 /* SearchCollectionReusableView.swift */; };
 		41FF2F6F224F000C00B0CFE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */; };
 		D37513C132FBA3FB116BA79E /* Pods_Quick_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272BEC73BF224E4684CECDCF /* Pods_Quick_Feed.framework */; };
 		DA2C3C0E226AA94D00047034 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C3C0D226AA94D00047034 /* Favorite.swift */; };
@@ -71,7 +72,8 @@
 		41931D6B2251D391003B4A48 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewCell.swift; sourceTree = "<group>"; };
 		41B3D005225ECFC2000E1C31 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		41E9854F2268999F0021DD50 /* InformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationVC.swift; sourceTree = "<group>"; };
+		41E9854F2268999F0021DD50 /* InformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InformationVC.swift; path = ../InformationVC.swift; sourceTree = "<group>"; };
+		41E98551226DB8840021DD50 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		41FF2F6E224F000C00B0CFE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60C9B6B42F47027336AAC6B8 /* Pods-Quick Feed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.release.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.release.xcconfig"; sourceTree = "<group>"; };
 		6730315D46D00D3C2530D6C3 /* Pods-Quick Feed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Feed.debug.xcconfig"; path = "Target Support Files/Pods-Quick Feed/Pods-Quick Feed.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,15 +119,11 @@
 		412403B82239B11A000CA642 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				41E98553226E8B090021DD50 /* Start-Up */,
 				41E9854A226893180021DD50 /* Tab Bar Controller */,
 				41B3D005225ECFC2000E1C31 /* Recipe.swift */,
-				DA2C3C0D226AA94D00047034 /* Favorite.swift */,
 				DA5C1FD02267ED9F0027502E /* User.swift */,
-				412403BF2245BFFD000CA642 /* LaunchVC.swift */,
-				416FDBAE2213C9080095B84A /* SignUpVC.swift */,
-				412FC89B225FD9B200703718 /* LoginVC.swift */,
 				412403B92239B15A000CA642 /* LifestyleVC.swift */,
-				41E9854F2268999F0021DD50 /* InformationVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -187,13 +185,34 @@
 		41E9854A226893180021DD50 /* Tab Bar Controller */ = {
 			isa = PBXGroup;
 			children = (
-				412403BD2245BF90000CA642 /* MainFeedVC.swift */,
-				412FC89D22617FC200703718 /* DetailVC.swift */,
-				41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */,
-				412FC89F2261856800703718 /* FavoriteVC.swift */,
+				41E98554226E8C0A0021DD50 /* Main Feed */,
+				41E9854F2268999F0021DD50 /* InformationVC.swift */,
 				41931D6B2251D391003B4A48 /* SettingsVC.swift */,
 			);
 			path = "Tab Bar Controller";
+			sourceTree = "<group>";
+		};
+		41E98553226E8B090021DD50 /* Start-Up */ = {
+			isa = PBXGroup;
+			children = (
+				412403BF2245BFFD000CA642 /* LaunchVC.swift */,
+				416FDBAE2213C9080095B84A /* SignUpVC.swift */,
+				412FC89B225FD9B200703718 /* LoginVC.swift */,
+			);
+			path = "Start-Up";
+			sourceTree = "<group>";
+		};
+		41E98554226E8C0A0021DD50 /* Main Feed */ = {
+			isa = PBXGroup;
+			children = (
+				412403BD2245BF90000CA642 /* MainFeedVC.swift */,
+				41B3D003225EB902000E1C31 /* MainFeedViewCell.swift */,
+				412FC89D22617FC200703718 /* DetailVC.swift */,
+				412FC89F2261856800703718 /* FavoriteVC.swift */,
+				DA2C3C0D226AA94D00047034 /* Favorite.swift */,
+				41E98551226DB8840021DD50 /* SearchCollectionReusableView.swift */,
+			);
+			path = "Main Feed";
 			sourceTree = "<group>";
 		};
 		4321AE767DE1C5C2E5406EC6 /* Frameworks */ = {
@@ -342,6 +361,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Quick Feed/Pods-Quick Feed-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -350,6 +370,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -394,6 +415,7 @@
 				412FC8A02261856800703718 /* FavoriteVC.swift in Sources */,
 				41B3D004225EB902000E1C31 /* MainFeedViewCell.swift in Sources */,
 				41B3D006225ECFC2000E1C31 /* Recipe.swift in Sources */,
+				41E98552226DB8840021DD50 /* SearchCollectionReusableView.swift in Sources */,
 				412403BE2245BF90000CA642 /* MainFeedVC.swift in Sources */,
 				412FC89E22617FC200703718 /* DetailVC.swift in Sources */,
 				412FC89C225FD9B200703718 /* LoginVC.swift in Sources */,

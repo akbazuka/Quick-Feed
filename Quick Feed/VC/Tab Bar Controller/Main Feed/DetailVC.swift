@@ -15,6 +15,7 @@ class DetailVC: UIViewController{
     @IBOutlet weak var cookingTime: UILabel!
     @IBOutlet weak var cuisine: UILabel!
     @IBOutlet weak var directions: UITextView!
+    @IBOutlet var images: UIImageView!
     
     static var nameString = ""
     static var caloriesString = ""
@@ -22,26 +23,32 @@ class DetailVC: UIViewController{
     static var cuisineString = ""
     static var directionsString = ""
     static var recipeID = ""
+    static var image1: UIImage? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Loading")
         name.text = DetailVC.nameString
         print(DetailVC.nameString)
         calories.text = "Calories: " + DetailVC.caloriesString
         cookingTime.text = "Cooking Time: " + DetailVC.cookingTimeString
         cuisine.text = "Cuisine: " + DetailVC.cuisineString
         directions.text = DetailVC.directionsString
+        if let image = DetailVC.image1{
+            images.image = image
+        }
+        
         self.navigationItem.hidesBackButton = false
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(DetailVC.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         directions.layer.cornerRadius = 10.0
+        images.layer.cornerRadius = 10.0
     }
     
     @IBAction func favPressed(_ sender: Any) {
         pushFav(uID: UserDefaults.standard.string(forKey: "uID") ?? "-1", recipeID: DetailVC.recipeID)
-        alert(title: "Added to favorites", message: "done")
+        alert(title: "Added to favorites!", message: "Done")
         
     }
     
